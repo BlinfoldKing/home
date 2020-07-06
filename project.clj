@@ -11,8 +11,16 @@
                  ; db deps
                  [toucan "1.15.1"]
                  [org.postgresql/postgresql "42.2.14"]
-                 [migratus "1.2.8"]]
+                 [org.clojure/java.jdbc "0.7.11"]
+                 [migratus "1.2.8"]
+                 ; utils
+                 [environ "1.2.0"]
+                 [com.taoensso/timbre "4.10.0"]
+                 [com.fzakaria/slf4j-timbre "0.3.19"]]
   :plugins [[lein-cljfmt "0.6.8"]]
   :main ^:skip-aot home.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}}
+  :aliases {"migrate-up" ["run" "-m" "home.migrations/up"]
+            "migrate-down" ["run" "-m" "home.migrations/down"]
+            "migrate-create" ["run" "-m" "home.migrations/create"]})
