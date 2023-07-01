@@ -4,24 +4,50 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+/* @media (prefers-color-scheme: dark) { */
+/*   :root { */
+/*     --foreground-rgb: 255, 255, 255; */
+/*     --background-start-rgb: 0, 0, 0; */
+/*     --background-end-rgb: 0, 0, 0; */
+/*   } */
+/* } */
 
+html,
 body {
+  /* font-family: "Cal Sans"; */
+}
+
+body,
+.with-bg {
   color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+nav {
+  height: 100vh;
+  border-right: dashed 3px black;
+}
+
+a.nav-item:before {
+  font-size: 32px;
+  color: rgb(var(--foreground-rgb));
+}
+
+a.nav-item:hover {
+  background-color: rgb(var(--foreground-rgb));
+}
+
+a.nav-item:hover:before {
+  color: rgb(var(--background-rgb));
+}
+
+.with-gradient-r {
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    90deg,
+    rgb(var(--background-rgb)),
+    rgba(0, 0, 0, 0) 100%
+  );
 }
